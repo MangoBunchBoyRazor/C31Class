@@ -7,7 +7,7 @@ var engine, world;
 var box1, pig1,pig3;
 var backgroundImg,platform;
 var bird, slingshot;
-
+var score = 0;
 
 function preload() {
     backgroundImg = loadImage("sprites/bg.png");
@@ -66,6 +66,8 @@ function draw(){
     platform.display();
     //log6.display();
     slingshot.display();    
+
+    text("Score:"+score,width-100,50);
 }
 
 function mouseDragged(){
@@ -80,5 +82,6 @@ function mouseReleased(){
 function keyPressed(){
     if(keyCode === 32){
         slingshot.attach(bird.body);
+        Matter.Body.setPosition(bird.body,{x:200,y:50});
     }
 }
